@@ -44,3 +44,14 @@ my-app>copy ..\static-method-provider\msg-service-swing-two.jar lib\
 my-app>javac -d out --module-path lib src/module-info.java src/com/logicbig/AppMain.java
 
 my-app>java --module-path out;lib --module my.app/com.logicbig.AppMain
+
+
+### Test SPI for concrete class
+
+static-method-provider-class>javac -d out src/module-info.java src\msg\provider\swingclass\*
+
+static-method-provider-class>jar --create --file msg-service-swing-class.jar -C out .
+
+my-app-class-test>javac -d out --module-path lib src/module-info.java src/com/logicbig/AppMain.java
+
+my-app-class-test>java --module-path out;lib --module my.app/com.logicbig.AppMain
